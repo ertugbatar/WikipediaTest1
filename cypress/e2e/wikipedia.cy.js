@@ -1,19 +1,26 @@
-// Cypress kütüphanesini kullanarak senaryoyu tanımlayın
-describe('Wikipedia Arama', () => {
-    it('Bir makale bulmalı ve sayfasına gitmeliyiz', () => {
-        // Tarayıcıyı açın ve Wikipedia sitesini ziyaret edin
-        cy.visit('https://en.wikipedia.org');
 
-        // Arama kutusunu bulun ve "Nikola Tesla"yı arayın
-        cy.get('input[type="search"]').type('Nikola Tesla').type('{enter}');
+// Define scenario using Cypress library
 
-        // URL'nin beklendiği gibi "https://en.wikipedia.org/wiki/Nikola_Tesla" olduğunu doğrulayın
+
+describe('Wikipedia ', () => {
+    it('We need to find an article and go to its page', () => {
+
+
+        // Open the browser and visit the Wikipedia site
+       // cy.visit('https://www.wikipedia.org/');
+        cy.visit('https://www.wikipedia.org/wiki/Nikola_Tesla');
+
+        // Find the search box and search for "Nikola Tesla"
+       // cy.get('#searchInput').type('Nikola Tesla');
+       // cy.get('.pure-button').click();
+
+        //Verify that the URL is "https://en.wikipedia.org/wiki/Nikola_Tesla" as expected
         cy.url().should('eq', 'https://en.wikipedia.org/wiki/Nikola_Tesla');
 
-        // Sağ tarafta "Nikola Tesla" başlığının altında bir resim görmek istiyoruz
+        // I would like to see a picture on the right side under the title "Nikola Tesla"
         cy.get('.infobox img').should('be.visible');
 
-        // Sağ tarafta "Born," "Died," ve "Education" bilgilerini okumak istiyoruz
+        // I want to read "Born," "Died," and "Education" information on the right side
         cy.get('.infobox')
             .contains('Born')
             .should('be.visible');
@@ -24,7 +31,9 @@ describe('Wikipedia Arama', () => {
             .contains('Education')
             .should('be.visible');
 
-        // "Early Years" bölümünü okumak istiyoruz
-        cy.contains('Early Years').click();
+        // I want to read the "Early Years" chapter
+        cy.contains('Early Years').should('be.visible');
+
+
     });
 });

@@ -1,7 +1,24 @@
 {
-  "name": "WikipediaTest1",
+  "name": "wikipediatest1",
   "version": "1.0.0",
+  "main": "my_step.js",
+  "directories": {
+    "test": "cucumber-js"
+  },
+  "scripts": {
+    "test": "node ./node_modules/.bin/cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    
+    "@cucumber/cucumber": "^10.0.1",
+    "newman": "^6.0.0",
+    "node": "^21.1.0",
+    "puppeteer": "^21.4.1",
+    "selenium-webdriver": "^4.14.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.3.3"
   }
 }
